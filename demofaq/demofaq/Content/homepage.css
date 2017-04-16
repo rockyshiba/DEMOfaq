@@ -1,0 +1,6 @@
+﻿section.questions {
+    display: inline-block;
+    width: 49%;
+    height: 400px;
+    outline: 1px solid black;
+}

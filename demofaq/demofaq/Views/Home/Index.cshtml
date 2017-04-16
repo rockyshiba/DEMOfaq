@@ -1,7 +1,17 @@
-﻿
+﻿@model IEnumerable<demofaq.Models.FAQS>
+
 @{
     ViewBag.Title = "Index";
+    //ViewBag.customCss = "<link href='" + Url.Content("~/Content/homepage.css") + "' rel='stylesheet' type='text/css' />";
 }
-
-<h2>Index</h2>
-
+<div class="page-wrapper">
+    <section class="questions" id="ask">
+        @foreach(var item in Model)
+        {
+            <div><b>@Html.DisplayNameFor(modelItem => modelItem.Question): </b></div>
+            <div>@item.Question</div>
+            <div>@item.Answer</div>
+        }
+    </section>
+    <section class="questions" id="answer"></section>
+</div>
