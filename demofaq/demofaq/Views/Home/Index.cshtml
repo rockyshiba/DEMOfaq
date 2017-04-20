@@ -2,16 +2,18 @@
 
 @{
     ViewBag.Title = "Index";
-    //ViewBag.customCss = "<link href='" + Url.Content("~/Content/homepage.css") + "' rel='stylesheet' type='text/css' />";
+    ViewBag.customCss = "<link href='" + Url.Content("~/Content/homepage.css") + "' rel='stylesheet' type='text/css' />";
 }
 <div class="page-wrapper">
     <section class="questions" id="ask">
-        @foreach(var item in Model)
+        @Html.Action("CreatePartial", "FAQS")
+    </section>
+    <section class="questions" id="answer">
+        @foreach (var item in Model)
         {
             <div><b>@Html.DisplayNameFor(modelItem => modelItem.Question): </b></div>
             <div>@item.Question</div>
             <div>@item.Answer</div>
         }
     </section>
-    <section class="questions" id="answer"></section>
 </div>

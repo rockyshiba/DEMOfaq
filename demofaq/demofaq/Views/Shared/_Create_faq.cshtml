@@ -1,0 +1,20 @@
+﻿@model demofaq.Models.FAQS
+
+@using (Html.BeginForm("Create", "FAQS", FormMethod.Post, new { @class = "create-faq"}))
+{
+    <div class="form-block">
+        @Html.LabelFor(model => model.Question)
+        <div class="form-input">
+            @Html.EditorFor(model => model.Question)
+        </div>
+        @Html.LabelFor(model => model.Name)
+        <div class="form-input">
+            @Html.EditorFor(model => model.Name)
+        </div>
+        @Html.LabelFor(model => model.Email)
+        <div class="form-input">
+            @Html.EditorFor(model => model.Email)
+        </div>
+        <input type="submit" value="Ask!" />
+    </div>
+}
