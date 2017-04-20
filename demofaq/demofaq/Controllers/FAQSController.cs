@@ -58,6 +58,11 @@ namespace demofaq.Controllers
             return View(fAQS);
         }
 
+        public ActionResult CreatePartial()
+        {
+            return PartialView("_Create_faq");
+        }
+
         // GET: FAQS/Edit/5
         public ActionResult Edit(int? id)
         {
