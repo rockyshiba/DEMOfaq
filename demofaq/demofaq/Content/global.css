@@ -61,6 +61,10 @@ html {
   box-sizing: inherit;
 }
 
+html, body{
+    min-height: 100%;
+}
+
 b, strong {
     font-weight: bold;
 }
@@ -71,6 +75,12 @@ header {
     width: 100%;
     text-align: center;
     border-bottom: 3px solid blue;
+    position: relative;
+    padding: 10px;
+}
+
+header > .page-wrapper {
+    position: relative;
 }
 
 h1 {
@@ -78,7 +88,34 @@ h1 {
     font-size: 18px;
 }
 
+main{
+    min-height: 100%; /*to keep footer at bottom*/
+}
+
+footer{
+    background-color: lightslategrey;
+    color: white;
+    display: block;
+    width: 100%;
+    margin-top: -150px; /*keeping footer visible on page load*/
+    min-height: 150px;
+    padding: 20px;
+}
+
 .page-wrapper{
     max-width: 980px;
     margin: 0 auto;
+}
+
+#header-nav{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+@media screen and (max-width: 420px){
+    #header-nav{
+        position: relative;
+        margin-top: 10px;
+    }
 }
