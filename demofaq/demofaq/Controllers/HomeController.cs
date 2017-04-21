@@ -15,5 +15,18 @@ namespace demofaq.Controllers
         {
             return View(db.FAQS.ToList());
         }
+
+        //[HttpPost]
+        //public ActionResult Index(FAQS faq)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.FAQS.Add(faq);
+        //        db.SaveChanges();
+        //        return View();
+        //    }
+
+        //    return View(faq);
+        //}
     }
 }

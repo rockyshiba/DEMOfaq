@@ -11,13 +11,19 @@ namespace demofaq.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class FAQS
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Question required", AllowEmptyStrings = false)]
+        [StringLength(300, ErrorMessage = "Question is too long")]
         public string Question { get; set; }
         public string Answer { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = "Anonymous";
+
+        [EmailAddress(ErrorMessage = "Must be a valid email")]
         public string Email { get; set; }
         public DateTime? Created_at { get; set; } = DateTime.Now;
     }
