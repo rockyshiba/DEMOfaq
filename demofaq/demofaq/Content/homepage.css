@@ -3,4 +3,6 @@
     width: 49%;
     height: 400px;
     outline: 1px solid black;
+    float:left;
+    margin-right: 5px;
 }
