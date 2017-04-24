@@ -1,6 +1,6 @@
 ﻿@model demofaq.Models.FAQS
 
-@using (Html.BeginForm("Create", "FAQS", FormMethod.Post, new { @class = "create-faq"}))
+@using (Html.BeginForm("AddQuestion", "FAQS", FormMethod.Post, new { @class = "create-faq"}))
 {
     @Html.AntiForgeryToken()
     <div class="form-block">

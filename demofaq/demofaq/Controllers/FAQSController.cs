@@ -58,6 +58,18 @@ namespace demofaq.Controllers
             return View(fAQS);
         }
 
+        [HttpPost]
+        public ActionResult AddQuestion([Bind(Include = "Id,Question,Answer,Name,Email")] FAQS fAQS)
+        {
+            if (ModelState.IsValid)
+            {
+                db.FAQS.Add(fAQS);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
         public ActionResult CreatePartial()
         {
             return PartialView("_Create_faq");
