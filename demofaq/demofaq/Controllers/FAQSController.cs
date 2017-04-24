@@ -59,6 +59,7 @@ namespace demofaq.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddQuestion([Bind(Include = "Id,Question,Answer,Name,Email")] FAQS fAQS)
         {
             if (ModelState.IsValid)
@@ -68,6 +69,23 @@ namespace demofaq.Controllers
                 return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        [ValidateAntiForgeryToken]
+        public void AddQuestionAjax([Bind(Include = "Id,Question,Answer,Name,Email")] FAQS fAQS)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    db.FAQS.Add(fAQS);
+                    db.SaveChanges();
+                }
+            }
+            catch (DataException dex)
+            {
+                ViewBag.Message = dex.Message;
+            }
         }
 
         public ActionResult CreatePartial()

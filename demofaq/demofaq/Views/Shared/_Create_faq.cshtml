@@ -22,3 +22,31 @@
         <input type="submit" value="Ask!" />
     </div>
 }
+
+<script>
+    function clearInputs() {
+        $("input:text").val = "";
+    }
+</script>
+@using (Ajax.BeginForm("AddQuestionAjax", "FAQS", null, new AjaxOptions { HttpMethod = "post", OnSuccess = "clearInputs" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-block">
+        @Html.LabelFor(model => model.Question)
+        <div class="form-input">
+            @Html.EditorFor(model => model.Question)
+            @Html.ValidationMessageFor(model => model.Question)
+        </div>
+        @Html.LabelFor(model => model.Name)
+        <div class="form-input">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        @Html.LabelFor(model => model.Email)
+        <div class="form-input">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+        <input type="submit" value="Ask!" />
+    </div>
+}
