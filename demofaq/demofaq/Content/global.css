@@ -100,6 +100,7 @@ footer{
     margin-top: -150px; /*keeping footer visible on page load*/
     min-height: 150px;
     padding: 20px;
+    clear: both;
 }
 
 .page-wrapper{

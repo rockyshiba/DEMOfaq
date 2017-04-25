@@ -22,7 +22,7 @@ namespace demofaq.Controllers
 
         public PartialViewResult Answers()
         {
-            return PartialView("_List_questions", db.FAQS.ToList());
+            return PartialView("_List_questions", db.FAQS.ToList().OrderByDescending(model => model.Created_at));
         }
 
         // GET: FAQS/Details/5
