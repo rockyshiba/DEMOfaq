@@ -1,6 +1,6 @@
 ﻿@model demofaq.Models.FAQS
 
-@using (Html.BeginForm("AddQuestion", "FAQS", FormMethod.Post, new { @class = "create-faq"}))
+@*@using (Html.BeginForm("AddQuestion", "FAQS", FormMethod.Post, new { @class = "create-faq"}))
 {
     @Html.AntiForgeryToken()
     <div class="form-block">
@@ -21,14 +21,14 @@
         </div>
         <input type="submit" value="Ask!" />
     </div>
-}
+}*@
 
 <script>
     function clearInputs() {
-        $("input:text").val = "";
+        $("input:text").val("");
     }
 </script>
-@using (Ajax.BeginForm("AddQuestionAjax", "FAQS", null, new AjaxOptions { HttpMethod = "post", OnSuccess = "clearInputs" }))
+@using (Ajax.BeginForm("AddQuestionAjax", "FAQS", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "clearInputs"}))
 {
     @Html.AntiForgeryToken()
     <div class="form-block">

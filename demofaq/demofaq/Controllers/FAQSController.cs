@@ -20,6 +20,11 @@ namespace demofaq.Controllers
             return View(db.FAQS.ToList());
         }
 
+        public PartialViewResult Answers()
+        {
+            return PartialView("_List_questions", db.FAQS.ToList());
+        }
+
         // GET: FAQS/Details/5
         public ActionResult Details(int? id)
         {
