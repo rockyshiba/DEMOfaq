@@ -15,17 +15,21 @@
         </nav>
     </section>
     <section class="questions" id="answer">
+        @Html.Action("Answers", "FAQS");
     </section>
     <script type="text/javascript">
         loadQuestions();
-        window.setInterval("loadQuestions()", 1000);
+        var tickTock = setInterval("loadQuestions()", 1000);
+        console.log(tickTock);
 
         document.getElementById("sort-earliest").onclick = function () {
-            window.setInterval("loadQuestionsEarliest()", 1000);
+            clearInterval(tickTock);
+            tickTock = setInterval("loadQuestionsEarliest()", 1000);
         }
 
-        function clearIntervals() {
-
+        document.getElementById("sort-latest").onclick = function () {
+            clearInterval(tickTock);
+            tickTock = setInterval("loadQuestions()", 1000);
         }
 
         function loadQuestions() {
