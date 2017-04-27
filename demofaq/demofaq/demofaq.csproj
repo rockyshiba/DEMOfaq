@@ -123,6 +123,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="connectionStrings.config" />
     <None Include="Properties\PublishProfiles\demofaqs - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\demofaqs - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

@@ -7,15 +7,41 @@
 <div class="page-wrapper">
     <section class="questions" id="ask">
         @Html.Action("CreatePartial", "FAQS")
+        <nav id="answers-sort">
+            <ul>
+                <li><a href="#answer" id="sort-latest" class="sort">Sort by Latest</a></li>
+                <li><a href="#answer" id="sort-earliest" class="sort">Sort by Earliest</a></li>
+            </ul>
+        </nav>
     </section>
     <section class="questions" id="answer">
     </section>
     <script type="text/javascript">
         loadQuestions();
         window.setInterval("loadQuestions()", 1000);
+
+        document.getElementById("sort-earliest").onclick = function () {
+            window.setInterval("loadQuestionsEarliest()", 1000);
+        }
+
+        function clearIntervals() {
+
+        }
+
         function loadQuestions() {
             $.ajax({
                 url: "@Url.Action("Answers", "FAQS")",
+                type: "GET",
+                dataType: "html",
+                success: function (result) {
+                    $("#answer").html(result);
+                }
+            });
+        }
+
+        function loadQuestionsEarliest() {
+            $.ajax({
+                url: "@Url.Action("AnswersByFirst", "FAQS")",
                 type: "GET",
                 dataType: "html",
                 success: function (result) {

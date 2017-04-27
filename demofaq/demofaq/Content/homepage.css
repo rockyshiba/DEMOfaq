@@ -6,3 +6,8 @@
     float:left;
     margin-right: 5px;
 }
+
+nav#answers-sort{
+    text-align:right;
+    margin-right: 10px;
+}

@@ -25,6 +25,11 @@ namespace demofaq.Controllers
             return PartialView("_List_questions", db.FAQS.ToList().OrderByDescending(model => model.Created_at));
         }
 
+        public PartialViewResult AnswersByFirst()
+        {
+            return PartialView("_List_questions", db.FAQS.ToList().OrderBy(model => model.Created_at));
+        }
+
         // GET: FAQS/Details/5
         public ActionResult Details(int? id)
         {

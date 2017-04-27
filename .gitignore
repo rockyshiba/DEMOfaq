@@ -77,4 +77,5 @@ _[Ss]cripts
 #Web config#
 ############
 Web.config
-demofaq/demofaq/Web.Config
+demofaq/demofaq/Web.config
+connectionStrings.config
