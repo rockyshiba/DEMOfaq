@@ -12,16 +12,17 @@ namespace demofaq.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class FAQS
+    public partial class Categories
     {
-        public int Id { get; set; }
-        public string Question { get; set; }
-        public string Answer { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public Nullable<System.DateTime> Created_at { get; set; }
-        public Nullable<int> Category_id { get; set; }
+        public Categories()
+        {
+            this.FAQS = new HashSet<FAQS>();
+        }
     
-        public virtual Categories Categories { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+    
+        public virtual ICollection<FAQS> FAQS { get; set; }
     }
 }

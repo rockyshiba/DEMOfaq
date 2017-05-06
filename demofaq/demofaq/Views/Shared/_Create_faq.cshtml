@@ -1,31 +1,8 @@
 ﻿@model demofaq.Models.FAQS
-
-@*@using (Html.BeginForm("AddQuestion", "FAQS", FormMethod.Post, new { @class = "create-faq"}))
-{
-    @Html.AntiForgeryToken()
-    <div class="form-block">
-        @Html.LabelFor(model => model.Question)
-        <div class="form-input">
-            @Html.EditorFor(model => model.Question)
-            @Html.ValidationMessageFor(model => model.Question)
-        </div>
-        @Html.LabelFor(model => model.Name)
-        <div class="form-input">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
-        @Html.LabelFor(model => model.Email)
-        <div class="form-input">
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email)
-        </div>
-        <input type="submit" value="Ask!" />
-    </div>
-}*@
-
 <script>
     function clearInputs() {
         $("input:text").val("");
+        document.getElementsByTagName("option")[0].selected = "true";
     }
 </script>
 @using (Ajax.BeginForm("AddQuestionAjax", "FAQS", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "clearInputs"}))
@@ -36,6 +13,11 @@
         <div class="form-input">
             @Html.EditorFor(model => model.Question)
             @Html.ValidationMessageFor(model => model.Question)
+        </div>
+        @Html.LabelFor(model => model.Category_id)
+        <div class="form-input">
+            @Html.DropDownList("Category_id", null, htmlAttributes: new { @class = "form-dropdown"})
+            @Html.ValidationMessageFor(model => model.Category_id)
         </div>
         @Html.LabelFor(model => model.Name)
         <div class="form-input">

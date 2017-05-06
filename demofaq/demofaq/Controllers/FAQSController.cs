@@ -48,6 +48,7 @@ namespace demofaq.Controllers
         // GET: FAQS/Create
         public ActionResult Create()
         {
+            ViewBag.Category_id = new SelectList(db.Categories, "Id", "Name");
             return View();
         }
 
@@ -100,6 +101,10 @@ namespace demofaq.Controllers
 
         public ActionResult CreatePartial()
         {
+            //For reasons unclear, for a data-driven dropdownlist the ViewBag property has to be the same as the HTML helper string like so:
+            //@Html.DropDownList("Category_id", null, htmlAttributes: new { @class = "form-dropdown"})
+            //This is not easily explained by the MVC developers
+            ViewBag.Category_id = new SelectList(db.Categories, "Id", "Name");
             return PartialView("_Create_faq");
         }
 

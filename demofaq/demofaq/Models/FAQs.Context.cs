@@ -26,5 +26,6 @@ namespace demofaq.Models
         }
     
         public DbSet<FAQS> FAQS { get; set; }
+        public DbSet<Categories> Categories { get; set; }
     }
 }
